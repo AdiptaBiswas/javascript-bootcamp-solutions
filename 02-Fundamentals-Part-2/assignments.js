@@ -61,3 +61,113 @@ function describePopulation(country, population) {
   );
 }
 describePopulation("India", IndiaPopulation);
+
+// LECTURE: Introduction to Arrays
+
+let populations = new Array(1400000000, 30000000, 75000000, 3600000);
+console.log(populations.length === 4);
+let percentages = [];
+var totalWorld = 7900000000;
+var tempPerc;
+for (var i = 0; i < populations.length; i++) {
+  tempPerc = (populations[i] / totalWorld) * 100;
+  percentages.push(tempPerc);
+}
+console.log(percentages);
+
+// LECTURE: Basic Array Operations (Methods)
+
+let neighbours = [
+  "Pakiatan",
+  "Nepal",
+  "Bangladesh",
+  "SriLanka",
+  "Bhutan",
+  "Afghanistan",
+  "Mayanmar",
+];
+neighbours.push("Utopia");
+console.log(neighbours);
+neighbours.pop("Utopia");
+console.log(neighbours);
+console.log(
+  neighbours.includes("Germany") == false
+    ? "Probably not a central European country :D"
+    : "A central Euopean country :)"
+);
+neighbours[neighbours.indexOf("Bangladesh")] = "Republic of Independent Bengal";
+console.log(neighbours);
+
+// LECTURE: Introduction to Objects
+
+myCountry = {
+  country: "India",
+  capital: "Delhi",
+  language: "Hindi",
+  population: 1400000000,
+  neighbours: [
+    "Pakistan",
+    "Bangladesh",
+    "Nepal",
+    "Bhutan",
+    "SriLanka",
+    "Mayanmar",
+    "Afghanistan",
+  ],
+};
+console.log(myCountry);
+
+// LECTURE: Dot vs. Bracket Notation
+
+console.log(
+  `${myCountry["country"]} has a capital ${myCountry.capital} with a majority of ${myCountry.language} speakers.
+${myCountry.country} has ${myCountry["neighbours"].length} borders.`
+);
+
+// LECTURE: Object Methods
+
+myCountry.checkIsIsland = () => {
+  let isIsland;
+  if (myCountry.neighbours.length != 0) isIsland = false;
+  else isIsland = true;
+  return isIsland;
+};
+console.log(myCountry.checkIsIsland());
+
+// LECTURE: Iteration: The for Loop
+
+for (voter = 1; voter <= 50; voter++) {
+  console.log(`Voter number ${voter} is currently voting`);
+}
+
+// LECTURE: Looping Arrays, Breaking and Continuing (Some other example done)
+
+let arr1 = [12, 24, 36, 48];
+let arr2 = [3, 6, 9, 12];
+for (let i = 0; i < arr1.length; i++) {
+  for (let j = 0; j < arr2.length; j++) {
+    if (arr1[i] % arr2[j] == 0)
+      console.log(`${arr1[i]} is divisible by ${arr2[j]}`);
+    else console.log(`${arr1[i]} is not divisible by ${arr2[j]}`);
+  }
+}
+for (let i = 0; i < arr1.length; i++) {
+  for (let j = 0; j < arr2.length; j++) {
+    if (arr1[i] % arr2[j] == 0)
+      console.log(`${arr1[i]} is divisible by ${arr2[j]}`);
+    else continue;
+  }
+}
+
+// LECTURE: Looping Backwards and Loops in Loops
+
+listOfNeighbours = [
+  ["Canada", "Mexico"],
+  ["Spain"],
+  ["Norway", "Sweden", "Russia"],
+];
+for (let i = 0; i < listOfNeighbours.length; i++) {
+  for (let j = 0; j < listOfNeighbours[i].length; j++) {
+    console.log(`Neighbour: ${listOfNeighbours[i][j]}`);
+  }
+}

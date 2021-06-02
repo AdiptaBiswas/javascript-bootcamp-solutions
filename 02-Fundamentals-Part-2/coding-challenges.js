@@ -38,7 +38,7 @@ if (avgDolphins > avgKoalas && avgDolphins >= 100) {
 
 // Coding Challenge #4
 
-const bill = 40;
+let bill = 40;
 let tip;
 tip = bill >= 50 && bill <= 300 ? (bill * 15) / 100 : (bill * 20) / 100;
 console.log(
@@ -62,3 +62,82 @@ function checkWinner(dolph, koal) {
   // else if (koal === dolph) console.log(`Both teams tied!`);
   else console.log(`No teams win!`);
 }
+
+// Coding Challenge #6
+
+var calcTip = (bill) => (bill >= 15 && bill <= 300 ? 0.15 * bill : 0.2 * bill);
+console.log(calcTip(100));
+let bills = new Array(125, 555, 44);
+var tips = new Array();
+let tempTip;
+for (var i = 0; i < bills.length; i++) {
+  tempTip = calcTip(bills[i]);
+  tips.push(tempTip);
+}
+console.log(tips);
+let total = new Array();
+var tempTotal;
+for (var i = 0; i < bills.length; i++) {
+  tempTotal = bills[i] + tips[i];
+  total.push(tempTotal);
+}
+console.log(total);
+
+// Coding Challenge #7
+
+const Mark = {
+  fullName: "Mark Miller",
+  mass: 78,
+  height: 1.69,
+  calcBMI: function () {
+    this.BMI = this.mass / this.height ** 2;
+    return this.BMI;
+  },
+};
+const John = {
+  fullName: "John Smith",
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.BMI = this.mass / this.height ** 2;
+    return this.BMI;
+  },
+};
+
+console.log(Mark.calcBMI());
+console.log(John.calcBMI());
+console.log(
+  `${Mark.calcBMI()} > ${John.calcBMI()} ? Mark has a greater BMI of ${
+    Mark.BMI
+  } than ${John.BMI}.`
+);
+
+// Coding Challenge #8
+
+bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+tips = new Array();
+totals = new Array();
+let tempTips;
+for (let counter = 0; counter < bills.length; counter++) {
+  if (bills[counter] >= 50 || bills[counter] <= 300) {
+    tempTips = bills[counter] * 0.15;
+    tips.push(tempTips);
+    tempTips = bills[counter] + tempTips;
+    totals.push(tempTips);
+  } else {
+    tempTips = bills[counter] * 0.2;
+    tips.push(tempTips);
+    tempTips = bills[counter] + tempTips;
+    totals.push(tempTips);
+  }
+}
+console.log(bills);
+console.log(tips);
+console.log(totals);
+let sum = 0;
+for (let i = 0; i < totals.length; i++) {
+  sum += totals[i];
+}
+console.log(sum);
+calcAverage = (sum, len) => sum / len;
+console.log(calcAverage(sum, totals.length));
